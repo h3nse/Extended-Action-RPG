@@ -16,11 +16,14 @@ func set_max_health(value):
 	emit_signal("max_health_changed", max_health)
 
 func set_health(value):
-	health = value
+	health = clamp(value, 0, max_health)
 	emit_signal("health_changed", health)
 	#Emit signal if health is <= 0
 	if health <= 0:
 		emit_signal("no_health")
+
+func is_max_health():
+	return health == max_health
 
 func _ready():
 	self.health = max_health
