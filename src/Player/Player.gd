@@ -14,8 +14,13 @@ enum {
 	ROLL,
 	ATTACK
 }
+enum {
+	SWORD,
+	FIRESWORD
+}
 
 #set loaded state to MOVE and create velocity and roll variable
+var weapon = SWORD
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
@@ -47,7 +52,16 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
-	
+
+	match weapon:
+		SWORD:
+			swordHitbox.damage = 1
+		FIRESWORD:
+			swordHitbox.damage = 2
+	if(Input.is_action_just_pressed("weapon_slot_1")):
+		weapon = SWORD
+	if(Input.is_action_just_pressed("weapon_slot_2")):
+		weapon = FIRESWORD
 
 func move_state(delta):
 	#Create input vector for direction
