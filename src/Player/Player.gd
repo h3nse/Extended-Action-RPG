@@ -80,8 +80,9 @@ func move_state(delta):
 		#Set blend positions for animation, to input vector (Both are directions)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
-		animationTree.set("parameters/Attack/blend_position", input_vector)
+		animationTree.set("parameters/Sword/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
+		animationTree.set("parameters/FireSword/blend_position", input_vector)
 		#Play run animation from animation tree, uses the blend position for the right animation direction
 		animationState.travel("Run")
 		#Set the velocity vector by where the player is going and how fast they're doing it
@@ -109,7 +110,11 @@ func roll_state(delta):
 func attack_state(delta):
 	#Stop movement and play animation
 	velocity = Vector2.ZERO
-	animationState.travel("Attack")
+	match weapon:
+		SWORD:
+			animationState.travel("Sword")
+		FIRESWORD:
+			animationState.travel("FireSword")
 
 func move():
 	#Move the player

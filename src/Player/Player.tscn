@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/PlayerFireSwordSpriteSheet.png" type="Texture" id=2]
@@ -304,6 +304,58 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 72, 73, 74, 75 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=54]
@@ -705,27 +757,27 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 6 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "AttackLeft"
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "FireSwordLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
-animation = "AttackDown"
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "FireSwordDown"
 
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "AttackRight"
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "FireSwordUp"
 
-[sub_resource type="AnimationNodeAnimation" id=32]
-animation = "AttackUp"
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "FireSwordRight"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=33]
-blend_point_0/node = SubResource( 29 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=57]
+blend_point_0/node = SubResource( 58 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 30 )
+blend_point_1/node = SubResource( 59 )
 blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 31 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 32 )
-blend_point_3/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 60 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 61 )
+blend_point_3/pos = Vector2( 1, 0 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
@@ -805,6 +857,31 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "AttackLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "AttackDown"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "AttackUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 29 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 30 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 31 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 32 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
@@ -817,16 +894,22 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=47]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
 [sub_resource type="AnimationNodeStateMachine" id=16]
-states/Attack/node = SubResource( 33 )
-states/Attack/position = Vector2( 395, 178 )
+states/FireSword/node = SubResource( 57 )
+states/FireSword/position = Vector2( 201, 98 )
 states/Idle/node = SubResource( 15 )
 states/Idle/position = Vector2( 395, 98 )
 states/Roll/node = SubResource( 45 )
 states/Roll/position = Vector2( 395, 1 )
 states/Run/node = SubResource( 22 )
 states/Run/position = Vector2( 585, 98 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 34 ), "Attack", "Idle", SubResource( 35 ), "Roll", "Idle", SubResource( 46 ), "Idle", "Roll", SubResource( 47 ) ]
+states/Sword/node = SubResource( 33 )
+states/Sword/position = Vector2( 395, 178 )
+transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Sword", SubResource( 34 ), "Sword", "Idle", SubResource( 35 ), "Roll", "Idle", SubResource( 46 ), "Idle", "Roll", SubResource( 47 ), "FireSword", "Idle", SubResource( 62 ), "Idle", "FireSword", SubResource( 63 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -162, -64 )
 
@@ -934,10 +1017,11 @@ anims/RunUp = SubResource( 4 )
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 17 )
-parameters/Attack/blend_position = Vector2( -0.175911, -0.324277 )
+parameters/FireSword/blend_position = Vector2( -0.0269414, -0.0568966 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
+parameters/Sword/blend_position = Vector2( 0, 0 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
