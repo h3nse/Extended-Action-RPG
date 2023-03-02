@@ -1,7 +1,7 @@
 [gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://Player/PlayerFireSwordSpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://Hit- & hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/SwordHitbox.gd" type="Script" id=4]
 [ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
@@ -764,7 +764,7 @@ states/Run/node = SubResource( 22 )
 states/Run/position = Vector2( 585, 98 )
 transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Attack", SubResource( 34 ), "Attack", "Idle", SubResource( 35 ), "Roll", "Idle", SubResource( 46 ), "Idle", "Roll", SubResource( 47 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -162, 67.9372 )
+graph_offset = Vector2( -162, -64 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -836,7 +836,7 @@ texture = ExtResource( 6 )
 material = SubResource( 51 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
-hframes = 60
+hframes = 76
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
