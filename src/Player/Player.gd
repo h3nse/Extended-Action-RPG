@@ -14,15 +14,11 @@ enum {
 	ROLL,
 	ATTACK
 }
-enum {
-	SWORD,
-	FIRESWORD
-}
 
 #set loaded state to MOVE and create velocity and roll variable
-var weapon = SWORD
+var weapon = "SWORD"
 var weapon_slot = 0
-var weapon_array = [SWORD]
+var weapon_array = ["SWORD"]
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
@@ -63,11 +59,6 @@ func _physics_process(delta):
 			weapon_slot += 1
 	weapon = weapon_array[weapon_slot]
 		
-	match weapon:
-		SWORD:
-			swordHitbox.damage = 1
-		FIRESWORD:
-			swordHitbox.damage = 2
 
 func move_state(delta):
 	#Create input vector for direction
@@ -117,10 +108,12 @@ func attack_state(delta):
 	#Stop movement and play animation
 	velocity = Vector2.ZERO
 	match weapon:
-		SWORD:
+		"SWORD":
 			animationState.travel("Sword")
-		FIRESWORD:
+			swordHitbox.damage = 1
+		"FIRESWORD":
 			animationState.travel("FireSword")
+			swordHitbox.damage = 2
 
 func move():
 	#Move the player
@@ -134,6 +127,9 @@ func attack_animation_finished():
 	#Switch to MOVE state after finishing attack animation, is called directly from AnimationPlayer
 	state = MOVE
 
+func weapon_picked_up(value):
+	weapon_array.append(value)
+
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(hit_invincibility_time)
@@ -146,7 +142,3 @@ func _on_Hurtbox_invincibility_started():
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
-	
-# array til current slots med identifiers
-# current weapon som er lig med slot_array[weapon_slot] som altså giver en identifier
-# match der matcher identifiers
