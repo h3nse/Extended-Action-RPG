@@ -1067,7 +1067,7 @@ states/Sword/node = SubResource( 33 )
 states/Sword/position = Vector2( 395, 178 )
 transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Sword", SubResource( 34 ), "Sword", "Idle", SubResource( 35 ), "Roll", "Idle", SubResource( 46 ), "Idle", "Roll", SubResource( 47 ), "FireSword", "Idle", SubResource( 62 ), "Idle", "FireSword", SubResource( 63 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -162, -64 )
+graph_offset = Vector2( -198, -1 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -1173,7 +1173,7 @@ anims/RunUp = SubResource( 4 )
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 17 )
-parameters/FireSword/blend_position = Vector2( -0.0269414, -0.0568966 )
+parameters/FireSword/blend_position = Vector2( 0.29477, -0.407759 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
