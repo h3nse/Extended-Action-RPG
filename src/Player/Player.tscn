@@ -1,7 +1,7 @@
 [gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/PlayerFireSwordSpriteSheet.png" type="Texture" id=2]
+[ext_resource path="res://Player/PlayerSpriteSheetWhipUpnDown.png" type="Texture" id=2]
 [ext_resource path="res://Hit- & hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
@@ -938,7 +938,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 36, 37, 38, 39 ]
+"values": [ 76, 77, 78, 79 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -1100,7 +1100,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 28, 28, 29, 30 ]
+"values": [ 80, 81, 82, 83 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -1334,9 +1334,9 @@ graph_offset = Vector2( -194, -15 )
 radius = 11.0
 height = 12.0
 
-[sub_resource type="SegmentShape2D" id=64]
-a = Vector2( 44, 0 )
-b = Vector2( 0, 0 )
+[sub_resource type="CapsuleShape2D" id=79]
+radius = 6.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id=48]
 radius = 6.0
@@ -1400,10 +1400,9 @@ texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 51 )
-position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
-hframes = 76
-frame = 30
+hframes = 84
+frame = 83
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -1469,8 +1468,9 @@ collision_mask = 8
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/WhipHitbox" index="0"]
-position = Vector2( 0, -5 )
-shape = SubResource( 64 )
+position = Vector2( 21, -5 )
+rotation = 1.5708
+shape = SubResource( 79 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
 collision_layer = 4
