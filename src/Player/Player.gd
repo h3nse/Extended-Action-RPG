@@ -18,7 +18,7 @@ enum {
 #set loaded state to MOVE and create velocity and roll variable
 var weapon = "SWORD"
 var weapon_slot = 0
-var weapon_array = ["SWORD"]
+var weapon_array = ["SWORD", "WHIP"]
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
@@ -28,6 +28,7 @@ var stats = PlayerStats
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var whipHitbox = $HitboxPivot/WhipHitbox
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 	#animation tree's root:
@@ -74,12 +75,14 @@ func move_state(delta):
 		#Set direction of roll and knockback to the direction we're facing
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector
+		whipHitbox.knockback_vector = input_vector * 2
 		#Set blend positions for animation, to input vector (Both are directions)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Sword/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
 		animationTree.set("parameters/FireSword/blend_position", input_vector)
+		animationTree.set("parameters/Whip/blend_position", input_vector)
 		#Play run animation from animation tree, uses the blend position for the right animation direction
 		animationState.travel("Run")
 		#Set the velocity vector by where the player is going and how fast they're doing it
@@ -114,6 +117,9 @@ func attack_state(delta):
 		"FIRESWORD":
 			animationState.travel("FireSword")
 			swordHitbox.damage = 2
+		"WHIP":
+			animationState.travel("Whip")
+			whipHitbox.damage = 0.5
 
 func move():
 	#Move the player
