@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FireSwordPickup.png-8e2ada7d639b7338fbd4fcbf70023128.stex"
+path="res://.import/FIRESWORDPickup.png-29bdaf3ef9b07665da1489354757c295.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/FireSwordPickup.png"
-dest_files=[ "res://.import/FireSwordPickup.png-8e2ada7d639b7338fbd4fcbf70023128.stex" ]
+source_file="res://Weapons/FIRESWORDPickup.png"
+dest_files=[ "res://.import/FIRESWORDPickup.png-29bdaf3ef9b07665da1489354757c295.stex" ]
 
 [params]
 

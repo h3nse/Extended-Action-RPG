@@ -34,6 +34,8 @@ onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 	#animation tree's root:
 onready var animationState = animationTree.get("parameters/playback")
 
+signal cycled_weapon
+
 func _ready():
 	randomize()
 	stats.connect("no_health", self, "queue_free")
@@ -58,7 +60,8 @@ func _physics_process(delta):
 			weapon_slot = 0
 		else:
 			weapon_slot += 1
-	weapon = weapon_array[weapon_slot]
+		weapon = weapon_array[weapon_slot]
+		emit_signal("cycled_weapon", weapon)
 		
 
 func move_state(delta):

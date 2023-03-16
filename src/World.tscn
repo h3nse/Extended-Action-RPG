@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Pickups/HealthPack.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Weapons/Firesword.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World.gd" type="Script" id=15]
+[ext_resource path="res://WeaponUI.gd" type="Script" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -622,14 +623,14 @@ position = Vector2( 192, 128 )
 [node name="Bat" parent="YSort/Bats" instance=ExtResource( 7 )]
 position = Vector2( 296, 71 )
 
-[node name="Bat4" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 227, 200 )
+[node name="Bat2" parent="YSort/Bats" instance=ExtResource( 7 )]
+position = Vector2( 56, 44 )
 
 [node name="Bat3" parent="YSort/Bats" instance=ExtResource( 7 )]
 position = Vector2( 77, 114 )
 
-[node name="Bat2" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 56, 48 )
+[node name="Bat4" parent="YSort/Bats" instance=ExtResource( 7 )]
+position = Vector2( 228, 220 )
 
 [node name="Trees" type="YSort" parent="YSort"]
 
@@ -653,13 +654,20 @@ position = Vector2( 227, 106 )
 [node name="Apple" parent="YSort/Pickups" instance=ExtResource( 12 )]
 position = Vector2( 149, 40 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 9 )]
+[node name="HealthUI" parent="UI" instance=ExtResource( 9 )]
 margin_left = 7.0
 margin_top = 5.0
 margin_right = 66.0
 margin_bottom = 16.0
 script = ExtResource( 8 )
+
+[node name="WeaponUI" type="TextureRect" parent="UI"]
+margin_left = 8.0
+margin_top = 160.0
+margin_right = 26.0
+margin_bottom = 179.0
+script = ExtResource( 17 )
 
 [editable path="Camera2D"]
