@@ -1,7 +1,7 @@
 [gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/PlayerSpriteSheetWhipnFiresword (2).png" type="Texture" id=2]
+[ext_resource path="res://Player/PlayerSpriteSheetWhipnFiresword (3).png" type="Texture" id=2]
 [ext_resource path="res://Hit- & hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
