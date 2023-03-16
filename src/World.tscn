@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Pickups/HealthPack.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Weapons/Firesword.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World.gd" type="Script" id=15]
+[ext_resource path="res://Enemies/PoisonFrog.tscn" type="PackedScene" id=16]
 [ext_resource path="res://WeaponUI.gd" type="Script" id=17]
 
 [sub_resource type="TileSet" id=1]
@@ -643,5 +644,8 @@ margin_top = 160.0
 margin_right = 26.0
 margin_bottom = 179.0
 script = ExtResource( 17 )
+
+[node name="PoisonFrog" parent="." instance=ExtResource( 16 )]
+position = Vector2( 112, 64 )
 
 [editable path="Camera2D"]

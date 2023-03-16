@@ -16,3 +16,6 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
