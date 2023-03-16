@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayerSpriteSheetWhipUpnDown.png-2220e79db46f41fabba35af73a0704f8.stex"
+path="res://.import/PlayerSpriteSheetWhipnFiresword (2).png-89bd6e7abd56edea128375b8dde770e8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/PlayerSpriteSheetWhipUpnDown.png"
-dest_files=[ "res://.import/PlayerSpriteSheetWhipUpnDown.png-2220e79db46f41fabba35af73a0704f8.stex" ]
+source_file="res://Player/PlayerSpriteSheetWhipnFiresword (2).png"
+dest_files=[ "res://.import/PlayerSpriteSheetWhipnFiresword (2).png-89bd6e7abd56edea128375b8dde770e8.stex" ]
 
 [params]
 

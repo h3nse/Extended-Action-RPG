@@ -1,7 +1,7 @@
 [gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/PlayerSpriteSheetWhipUpnDown.png" type="Texture" id=2]
+[ext_resource path="res://Player/PlayerSpriteSheetWhipnFiresword (2).png" type="Texture" id=2]
 [ext_resource path="res://Hit- & hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
@@ -938,7 +938,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 76, 77, 78, 79 ]
+"values": [ 88, 89, 90, 91 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -992,7 +992,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 32, 33, 34, 35 ]
+"values": [ 84, 85, 86, 87 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -1046,7 +1046,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 24, 25, 26, 27 ]
+"values": [ 76, 77, 78, 79 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -1401,8 +1401,8 @@ texture = ExtResource( 6 )
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 51 )
 texture = ExtResource( 2 )
-hframes = 84
-frame = 18
+hframes = 92
+frame = 91
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -1449,7 +1449,7 @@ parameters/Whip/blend_position = Vector2( -0.00950873, -0.0192983 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 4.71239
+rotation = 1.5708
 __meta__ = {
 "_gizmo_extents_": 8.0
 }
