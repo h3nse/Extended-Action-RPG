@@ -511,7 +511,7 @@ __meta__ = {
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 3, 0, 0, 4, 0, 1, 5, 0, 2, 65536, 0, 0, 65537, 0, 1, 65538, 0, 1, 65539, 0, 65545, 65540, 0, 131073, 65541, 0, 9, 65542, 0, 1, 65543, 0, 2, 131072, 0, 65540, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131074, 131077, 0, 131072, 131078, 0, 65542, 131079, 0, 65538, 196608, 0, 131075, 196614, 0, 131072, 196615, 0, 9, 196616, 0, 2, 196627, 0, 0, 196628, 0, 2, 262151, 0, 65536, 262152, 0, 65538, 262162, 0, 0, 262163, 0, 65545, 262164, 0, 131074, 327687, 0, 131072, 327688, 0, 9, 327689, 0, 2, 327696, 0, 0, 327697, 0, 1, 327698, 0, 131078, 327699, 0, 65538, 393224, 0, 65536, 393225, 0, 65538, 393232, 0, 65536, 393233, 0, 65537, 393234, 0, 65541, 393235, 0, 131074, 458760, 0, 65536, 458761, 0, 65538, 458767, 0, 0, 458768, 0, 131078, 458769, 0, 65541, 458770, 0, 131074, 524296, 0, 65536, 524297, 0, 131077, 524298, 0, 2, 524302, 0, 0, 524303, 0, 131078, 524304, 0, 65541, 524305, 0, 131074, 589832, 0, 131072, 589833, 0, 131073, 589834, 0, 9, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 131078, 589839, 0, 65541, 589840, 0, 131074, 655370, 0, 131072, 655371, 0, 131073, 655372, 0, 131073, 655373, 0, 131073, 655374, 0, 131073, 655375, 0, 131074 )
+tile_data = PoolIntArray( 3, 0, 0, 4, 0, 1, 5, 0, 2, 65536, 0, 0, 65537, 0, 1, 65538, 0, 1, 65539, 0, 65545, 65540, 0, 131073, 65541, 0, 9, 65542, 0, 1, 65543, 0, 2, 131072, 0, 65540, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131074, 131077, 0, 131072, 131078, 0, 65542, 131079, 0, 65538, 131092, 0, 0, 131093, 0, 1, 131094, 0, 1, 131095, 0, 1, 131096, 0, 1, 131097, 0, 1, 131098, 0, 1, 131099, 0, 1, 131100, 0, 2, 196608, 0, 131075, 196614, 0, 131072, 196615, 0, 9, 196616, 0, 2, 196627, 0, 0, 196628, 0, 131078, 196629, 0, 65541, 196630, 0, 131073, 196631, 0, 131073, 196632, 0, 131073, 196633, 0, 131073, 196634, 0, 131073, 196635, 0, 131073, 196636, 0, 131074, 262151, 0, 65536, 262152, 0, 65538, 262162, 0, 0, 262163, 0, 65545, 262164, 0, 131073, 262165, 0, 131074, 327687, 0, 131072, 327688, 0, 9, 327689, 0, 2, 327696, 0, 0, 327697, 0, 1, 327698, 0, 65545, 327699, 0, 131074, 393224, 0, 65536, 393225, 0, 65538, 393231, 0, 0, 393232, 0, 131078, 393233, 0, 65541, 393234, 0, 131074, 458760, 0, 65536, 458761, 0, 65538, 458767, 0, 65536, 458768, 0, 65537, 458769, 0, 65538, 524296, 0, 65536, 524297, 0, 131077, 524298, 0, 2, 524302, 0, 0, 524303, 0, 65545, 524304, 0, 131073, 524305, 0, 131074, 589832, 0, 131072, 589833, 0, 131073, 589834, 0, 196613, 589835, 0, 196609, 589836, 0, 6, 589837, 0, 1, 589838, 0, 131078, 589839, 0, 65538, 655372, 0, 131072, 655373, 0, 131073, 655374, 0, 131073, 655375, 0, 131074 )
 
 [node name="DirtCliffTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -546,16 +546,13 @@ position = Vector2( 96, 120 )
 position = Vector2( 112, 104 )
 
 [node name="Grass5" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 288, 160 )
+position = Vector2( 304, 112 )
 
 [node name="Grass6" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 304, 160 )
+position = Vector2( 304, 128 )
 
 [node name="Grass7" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 304, 144 )
-
-[node name="Grass8" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 272, 160 )
 
 [node name="Grass9" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 208, 96 )
@@ -581,29 +578,11 @@ position = Vector2( 256, 64 )
 [node name="Grass16" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 48, 80 )
 
-[node name="Grass17" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 48, 64 )
-
 [node name="Grass18" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 32, 64 )
 
 [node name="Grass19" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 32, 80 )
-
-[node name="Grass20" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 48, 48 )
-
-[node name="Grass22" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 32, 48 )
-
-[node name="Grass23" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 64, 64 )
-
-[node name="Grass24" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 80, 64 )
-
-[node name="Grass21" parent="YSort/Grass" instance=ExtResource( 6 )]
-position = Vector2( 64, 48 )
 
 [node name="Grass3" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 96, 104 )
@@ -614,24 +593,18 @@ position = Vector2( 112, 120 )
 [node name="Bushes" type="YSort" parent="YSort"]
 
 [node name="Bush" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 80, 88 )
+position = Vector2( 176, 80 )
 
 [node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 1 )]
 position = Vector2( 192, 128 )
 
 [node name="Bats" type="YSort" parent="YSort"]
 
-[node name="Bat" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 296, 71 )
-
 [node name="Bat2" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 200, 216 )
-
-[node name="Bat3" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 368, 120 )
+position = Vector2( 216, 160 )
 
 [node name="Bat4" parent="YSort/Bats" instance=ExtResource( 7 )]
-position = Vector2( 288, 200 )
+position = Vector2( 240, 120 )
 
 [node name="Trees" type="YSort" parent="YSort"]
 
@@ -642,18 +615,18 @@ position = Vector2( 288, 152 )
 position = Vector2( 200, 32 )
 
 [node name="Tree3" parent="YSort/Trees" instance=ExtResource( 10 )]
-position = Vector2( 48, 104 )
+position = Vector2( -48, 48 )
 
 [node name="Pickups" type="YSort" parent="YSort"]
 
 [node name="Firesword" parent="YSort/Pickups" instance=ExtResource( 14 )]
-position = Vector2( 432, 224 )
+position = Vector2( 424, 16 )
 
 [node name="HealthPack" parent="YSort/Pickups" instance=ExtResource( 13 )]
-position = Vector2( 376, 296 )
+position = Vector2( 440, 16 )
 
 [node name="Apple" parent="YSort/Pickups" instance=ExtResource( 12 )]
-position = Vector2( 384, 224 )
+position = Vector2( 328, 88 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
