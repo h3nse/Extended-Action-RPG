@@ -18,7 +18,7 @@ var state = WANDER
 func _process(delta):
 	match state:
 		WANDER:
-			_on_MoveTimer_timeout()
+			pass
 		CHASE:
 			pass
 
