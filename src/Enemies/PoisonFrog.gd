@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
 #export variables
-export var maxJumpLength = 5
-export var jumpInterval = 10
+export var maxJumpLength = 5.0
+export var jumpInterval = 10.0
 export var friction = 10
 export var moveSpeed = 10
 
 #Variables
 onready var moveTimer = $MoveTimer
 onready var jumpTimer = $JumpTimer
+onready var sprite = $Sprite
+onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2.ZERO
 
@@ -21,7 +23,7 @@ enum {
 var state = IDLE
 
 func _ready():
-	moveTimer.wait_time = rand_range(2, 10)
+	moveTimer.wait_time = rand_range(2.0, jumpInterval)
 
 func _process(delta):
 	match state:
@@ -31,6 +33,7 @@ func _process(delta):
 			velocity = move_and_slide(velocity)
 		CHASE:
 			pass
+	sprite.flip_h = velocity.x < 0
 
 func _on_MoveTimer_timeout():
 	jumpTimer.start(rand_range(1, maxJumpLength))
