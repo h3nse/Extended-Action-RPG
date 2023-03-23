@@ -31,6 +31,7 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var whipHitbox = $HitboxPivot/WhipHitbox
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var softCollision = $SoftCollision
 	#animation tree's root:
 onready var animationState = animationTree.get("parameters/playback")
 
@@ -94,7 +95,7 @@ func move_state(delta):
 		#Sets animation and velocity to idle if not moving
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-		
+
 	move()
 	
 	#If pressing roll button, switch state to ROLL

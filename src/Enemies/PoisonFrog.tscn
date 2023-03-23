@@ -152,6 +152,7 @@ start_node = "Idle"
 radius = 8.0
 
 [node name="PoisonFrog" type="KinematicBody2D"]
+collision_layer = 16
 script = ExtResource( 2 )
 maxJumpLength = 1.0
 moveSpeed = 15

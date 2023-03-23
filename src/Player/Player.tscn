@@ -1484,7 +1484,7 @@ position = Vector2( 0, -5 )
 shape = SubResource( 48 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -5 )
 rotation = 1.5708
 collision_layer = 0
 

@@ -35,7 +35,7 @@ func _process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			if softCollision.is_colliding():
-				velocity += softCollision.get_push_vector() * delta * 230
+				velocity += softCollision.get_push_vector() * delta * 300
 			velocity = move_and_slide(velocity)
 			animationTree.set("parameters/Idle/blend_position", lastDirection)
 			animationState.travel("Idle")
@@ -57,5 +57,6 @@ func _on_JumpTimer_timeout():
 	state = IDLE
 
 func get_random_direction():
-	var direction = Vector2(rand_range(-100,100), rand_range(-100,100))
-	return direction.normalized()
+	#Creates vector and rotates it by a random degree
+	var direction = Vector2.LEFT.rotated(rand_range(0,TAU))
+	return direction

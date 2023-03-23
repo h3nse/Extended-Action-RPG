@@ -53,9 +53,9 @@ func _physics_process(delta):
 			seek_player()
 			if wander_controller.get_time_left() == 0:
 				update_wander()
-				
+
 			accelerate_towards_point(wander_controller.target_position, delta)
-			
+
 			if global_position.distance_to(wander_controller.target_position) <= 5:
 				update_wander()
 			lastDirection = velocity
