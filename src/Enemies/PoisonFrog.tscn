@@ -149,7 +149,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=20]
 
 [sub_resource type="CircleShape2D" id=21]
-radius = 9.0
+radius = 8.0
 
 [node name="PoisonFrog" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -185,7 +185,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 20 )
 parameters/Idle/blend_position = Vector2( -0.00158477, 0.237069 )
-parameters/Jump/blend_position = Vector2( 0.014263, 0.258621 )
+parameters/Jump/blend_position = Vector2( -0.0950872, -0.43299 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 3 )]
 

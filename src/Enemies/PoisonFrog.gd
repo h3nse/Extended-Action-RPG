@@ -35,7 +35,7 @@ func _process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			if softCollision.is_colliding():
-				velocity += softCollision.get_push_vector() * delta * 200
+				velocity += softCollision.get_push_vector() * delta * 230
 			velocity = move_and_slide(velocity)
 			animationTree.set("parameters/Idle/blend_position", lastDirection)
 			animationState.travel("Idle")
