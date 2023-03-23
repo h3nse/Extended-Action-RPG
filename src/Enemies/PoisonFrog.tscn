@@ -1,8 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Enemies/FrogSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/PoisonFrog.gd" type="Script" id=2]
 [ext_resource path="res://Hit- & hurtboxes/SoftCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -215,6 +217,9 @@ start_node = "Idle"
 [sub_resource type="CircleShape2D" id=21]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id=26]
+radius = 6.0
+
 [node name="PoisonFrog" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 2 )
@@ -262,7 +267,20 @@ parameters/Jump/blend_position = Vector2( -0.0950872, -0.43299 )
 position = Vector2( 0, 2 )
 shape = SubResource( 21 )
 
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, 2 )
+shape = SubResource( 26 )
+
+[node name="Stats" parent="." instance=ExtResource( 5 )]
+max_health = 4
+
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="SoftCollision"]
+[editable path="Hurtbox"]

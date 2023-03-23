@@ -117,7 +117,7 @@ material = SubResource( 12 )
 position = Vector2( 0, -12 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 4
+frame = 3
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="."]

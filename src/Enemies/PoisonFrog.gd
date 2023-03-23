@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+
 #export variables
 export var maxJumpLength = 5.0
 export var jumpInterval = 10.0
@@ -13,9 +15,12 @@ onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var softCollision = $SoftCollision
+onready var stats = $Stats
+onready var hurtbox = $Hurtbox
 onready var animationState = animationTree.get("parameters/playback")
 
 var velocity = Vector2.ZERO
+var knockback = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 
 #States
@@ -31,6 +36,8 @@ func _ready():
 	moveTimer.wait_time = rand_range(2.0, jumpInterval)
 
 func _process(delta):
+	knockback = knockback.move_toward(Vector2.ZERO, friction * delta)
+	knockback = move_and_slide(knockback)
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
@@ -60,3 +67,20 @@ func get_random_direction():
 	#Creates vector and rotates it by a random degree
 	var direction = Vector2.LEFT.rotated(rand_range(0,TAU))
 	return direction
+
+func _on_Hurtbox_area_entered(area):
+	#Lower the health
+	stats.health -= area.damage
+	#Set knockback by direction and multiplier
+	knockback = area.knockback_vector * 100
+	hurtbox.create_hit_effect()
+	hurtbox.start_invincibility(0.4)
+	
+func _on_Stats_no_health():
+	queue_free()
+	#Make instance of scene
+	var enemyDeathEffect = EnemyDeathEffect.instance()
+	#Add scene to the world scene
+	get_parent().add_child(enemyDeathEffect)
+	#Set the position
+	enemyDeathEffect.global_position = global_position
