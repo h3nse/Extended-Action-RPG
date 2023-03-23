@@ -18,6 +18,7 @@ enum {
 #Make variables
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
+var lastDirection = Vector2.ZERO
 
 #Set loaded state to IDLE
 var state = IDLE
@@ -57,6 +58,7 @@ func _physics_process(delta):
 			
 			if global_position.distance_to(wander_controller.target_position) <= 5:
 				update_wander()
+			lastDirection = velocity
 		CHASE:
 			#Link player variable
 			var player = playerDetectionZone.player
@@ -69,7 +71,7 @@ func _physics_process(delta):
 				state = IDLE
 	
 	#Flip to face the correct way
-	sprite.flip_h = velocity.x < 0
+	sprite.flip_h = lastDirection.x < 0
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * 400
 	#Move and remember new vector

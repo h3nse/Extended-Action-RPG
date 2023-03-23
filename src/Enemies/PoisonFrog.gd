@@ -16,6 +16,7 @@ onready var softCollision = $SoftCollision
 onready var animationState = animationTree.get("parameters/playback")
 
 var velocity = Vector2.ZERO
+var lastDirection = Vector2.ZERO
 
 #States
 enum {
@@ -36,12 +37,13 @@ func _process(delta):
 			if softCollision.is_colliding():
 				velocity += softCollision.get_push_vector() * delta * 200
 			velocity = move_and_slide(velocity)
-			animationTree.set("parameters/Idle/blend_position", velocity)
+			animationTree.set("parameters/Idle/blend_position", lastDirection)
 			animationState.travel("Idle")
 		JUMP:
 			velocity = move_and_slide(velocity)
 			animationTree.set("parameters/Jump/blend_position", velocity)
 			animationState.travel("Jump")
+			lastDirection = velocity
 		CHASE:
 			pass
 
