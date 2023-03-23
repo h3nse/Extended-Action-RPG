@@ -1,8 +1,9 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/PlayerSpriteSheetWhipnFiresword (3).png" type="Texture" id=2]
 [ext_resource path="res://Hit- & hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hit- & hurtboxes/SoftCollision.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hit- & hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
@@ -1342,6 +1343,9 @@ height = 18.0
 radius = 6.0
 height = 6.0
 
+[sub_resource type="CircleShape2D" id=80]
+radius = 8.0
+
 [sub_resource type="Animation" id=52]
 length = 0.001
 tracks/0/type = "value"
@@ -1402,7 +1406,7 @@ texture = ExtResource( 6 )
 material = SubResource( 51 )
 texture = ExtResource( 2 )
 hframes = 92
-frame = 91
+frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -1479,6 +1483,15 @@ collision_layer = 4
 position = Vector2( 0, -5 )
 shape = SubResource( 48 )
 
+[node name="SoftCollision" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -4 )
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 4, -1.52588e-05 )
+shape = SubResource( 80 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
@@ -1495,3 +1508,4 @@ anims/Stop = SubResource( 50 )
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="HitboxPivot/WhipHitbox"]
 [editable path="Hurtbox"]
+[editable path="SoftCollision"]

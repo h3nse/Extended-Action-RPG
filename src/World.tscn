@@ -632,16 +632,16 @@ position = Vector2( 328, 88 )
 [node name="Frogs" type="YSort" parent="YSort"]
 
 [node name="PoisonFrog" parent="YSort/Frogs" instance=ExtResource( 16 )]
-position = Vector2( 104, 64 )
+position = Vector2( 104, 48 )
 
 [node name="PoisonFrog2" parent="YSort/Frogs" instance=ExtResource( 16 )]
-position = Vector2( 72, 80 )
+position = Vector2( 104, 56 )
 
 [node name="PoisonFrog3" parent="YSort/Frogs" instance=ExtResource( 16 )]
-position = Vector2( 136, 48 )
+position = Vector2( 120, 48 )
 
 [node name="PoisonFrog4" parent="YSort/Frogs" instance=ExtResource( 16 )]
-position = Vector2( 128, 88 )
+position = Vector2( 120, 56 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 

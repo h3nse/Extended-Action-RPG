@@ -3,7 +3,7 @@ extends KinematicBody2D
 #export variables
 export var maxJumpLength = 5.0
 export var jumpInterval = 10.0
-export var friction = 10
+export var friction = 200
 export var moveSpeed = 10
 
 #Variables
@@ -12,6 +12,7 @@ onready var jumpTimer = $JumpTimer
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
+onready var softCollision = $SoftCollision
 onready var animationState = animationTree.get("parameters/playback")
 
 var velocity = Vector2.ZERO
@@ -32,6 +33,9 @@ func _process(delta):
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+			if softCollision.is_colliding():
+				velocity += softCollision.get_push_vector() * delta * 200
+			velocity = move_and_slide(velocity)
 			animationTree.set("parameters/Idle/blend_position", velocity)
 			animationState.travel("Idle")
 		JUMP:

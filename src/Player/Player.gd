@@ -138,6 +138,9 @@ func attack_animation_finished():
 
 func weapon_picked_up(value):
 	weapon_array.append(value)
+	weapon = value
+	weapon_slot = weapon_array.size() - 1
+	emit_signal("cycled_weapon", weapon)
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
