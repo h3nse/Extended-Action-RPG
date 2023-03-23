@@ -69,6 +69,7 @@ func _physics_process(delta):
 			else:
 				#Switch to IDLE when we lose sight of player
 				state = IDLE
+			lastDirection = velocity
 	
 	#Flip to face the correct way
 	sprite.flip_h = lastDirection.x < 0
