@@ -1406,7 +1406,7 @@ texture = ExtResource( 6 )
 material = SubResource( 51 )
 texture = ExtResource( 2 )
 hframes = 92
-frame = 18
+frame = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -1453,7 +1453,6 @@ parameters/Whip/blend_position = Vector2( -0.00950873, -0.0192983 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 1.5708
 __meta__ = {
 "_gizmo_extents_": 8.0
 }

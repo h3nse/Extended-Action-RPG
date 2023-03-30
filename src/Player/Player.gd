@@ -23,6 +23,7 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
 var stats = PlayerStats
+var is_doing_action = false
 
 #Load variables for nodes when ready
 onready var animationPlayer = $AnimationPlayer
@@ -54,16 +55,6 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
-
-	#Weapon cycling
-	if(Input.is_action_just_pressed("weapon_cycle")):
-		if weapon_slot == weapon_array.size() -1:
-			weapon_slot = 0
-		else:
-			weapon_slot += 1
-		weapon = weapon_array[weapon_slot]
-		emit_signal("cycled_weapon", weapon)
-		
 
 func move_state(delta):
 	#Create input vector for direction
@@ -99,12 +90,18 @@ func move_state(delta):
 	move()
 	
 	#If pressing roll button, switch state to ROLL
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("roll") and not is_doing_action:
+		is_doing_action = true
 		state = ROLL
 	
 	#If pressing attack button, switch state to ATTACK
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and  not is_doing_action:
+		is_doing_action = true
 		state = ATTACK
+	
+	#Weapon cycling
+	if Input.is_action_just_pressed("weapon_cycle") and not is_doing_action:
+		cycle_weapon()
 
 func roll_state(delta):
 	velocity = roll_vector * max_speed * roll_speed
@@ -132,10 +129,12 @@ func move():
 func roll_animation_finished():
 	velocity = velocity * 0.2
 	state = MOVE
+	is_doing_action = false
 
 func attack_animation_finished():
 	#Switch to MOVE state after finishing attack animation, is called directly from AnimationPlayer
 	state = MOVE
+	is_doing_action = false
 
 func weapon_picked_up(value):
 	weapon_array.append(value)
@@ -143,6 +142,14 @@ func weapon_picked_up(value):
 	weapon_slot = weapon_array.size() - 1
 	emit_signal("cycled_weapon", weapon)
 
+func cycle_weapon():
+	if weapon_slot == weapon_array.size() -1:
+		weapon_slot = 0
+	else:
+		weapon_slot += 1
+	weapon = weapon_array[weapon_slot]
+	emit_signal("cycled_weapon", weapon)
+		
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(hit_invincibility_time)
