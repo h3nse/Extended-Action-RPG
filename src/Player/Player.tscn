@@ -1344,7 +1344,7 @@ radius = 6.0
 height = 6.0
 
 [sub_resource type="CircleShape2D" id=80]
-radius = 8.0
+radius = 5.0
 
 [sub_resource type="Animation" id=52]
 length = 0.001
@@ -1483,12 +1483,11 @@ position = Vector2( 0, -5 )
 shape = SubResource( 48 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -5 )
 rotation = 1.5708
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( 4, -1.52588e-05 )
+position = Vector2( 0, 9.53674e-07 )
 shape = SubResource( 80 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

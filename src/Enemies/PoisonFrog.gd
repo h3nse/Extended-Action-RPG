@@ -7,6 +7,7 @@ export var maxJumpLength = 5.0
 export var jumpInterval = 10.0
 export var friction = 200
 export var moveSpeed = 10
+export var softCollisionPushback = 250
 
 #Variables
 onready var moveTimer = $MoveTimer
@@ -42,7 +43,7 @@ func _process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 			if softCollision.is_colliding():
-				velocity += softCollision.get_push_vector() * delta * 250
+				velocity += softCollision.get_push_vector() * delta * softCollisionPushback
 			velocity = move_and_slide(velocity)
 			animationTree.set("parameters/Idle/blend_position", lastDirection)
 			animationState.travel("Idle")
