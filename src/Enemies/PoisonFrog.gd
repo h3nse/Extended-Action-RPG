@@ -75,7 +75,13 @@ func _on_Hurtbox_area_entered(area):
 	knockback = area.knockback_vector * 100
 	hurtbox.create_hit_effect()
 	hurtbox.start_invincibility(0.4)
-	
+
+func _on_Hurtbox_invincibility_started():
+	animationPlayer.play("HitEffectStart")
+
+func _on_Hurtbox_invincibility_ended():
+	animationPlayer.play("HitEffectStop")	
+
 func _on_Stats_no_health():
 	queue_free()
 	#Make instance of scene

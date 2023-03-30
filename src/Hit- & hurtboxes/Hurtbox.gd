@@ -38,6 +38,5 @@ func _on_Timer_timeout():
 func _on_Hurtbox_invincibility_started():
 	collision_shape_2d.set_deferred("disabled", true)
 
-
 func _on_Hurtbox_invincibility_ended():
 	collision_shape_2d.disabled = false
